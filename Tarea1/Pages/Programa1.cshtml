@@ -1,0 +1,50 @@
+﻿@page
+@model Tarea1.Pages.Programa1Model
+@{
+    
+}
+<h3 class="mt-4">Índice de Masa Corporal</h3>
+
+<form method="post" class="mt-4">
+    <div class="form-group">
+        <label for="peso">Peso:</label>
+        <input type="number" step="0.1" class="form-control" id="peso" asp-for="peso" />
+    </div>
+    <div class="form-group">
+        <label for="altura">Altura:</label>
+        <input type="number" step="0.1" class="form-control" id="altura" asp-for="altura" />
+    </div>
+    <button type="submit" class="btn btn-primary">Calcular</button>
+
+    @if (Model.masa != 0)
+    {
+        <div class="mt-4">
+            <strong>Masa Corporal = @Model.masa</strong>
+            @if (@Model.masa < 18)
+            {
+                <p class="text-danger">Peso Bajo</p>
+            }
+            else if (@Model.masa >= 18 && @Model.masa < 25)
+            {
+                <p class="text-success">Peso Normal</p>
+            }
+            else if (@Model.masa >= 25 && @Model.masa < 27)
+            {
+                <p class="text-warning">Sobrepeso</p>
+            }
+            else if (@Model.masa >= 27 && @Model.masa < 30)
+            {
+                <p class="text-warning">Obesidad Grado I</p>
+            }
+            else if (@Model.masa >= 30 && @Model.masa < 35)
+            {
+                <p class="text-danger">Obesidad Grado II</p>
+            }
+            else if (@Model.masa >= 35)
+            {
+                <p class="text-danger">Obesidad Grado III</p>
+            }
+        </div>
+    }
+</form>
+

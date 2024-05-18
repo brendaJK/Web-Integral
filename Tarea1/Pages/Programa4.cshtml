@@ -1,0 +1,53 @@
+﻿@page
+@model Tarea1.Pages.Programa4Model
+@{
+    ViewData["Title"] = "Random";
+    var numero = Model.ints;
+}
+
+<div class="container" style="background-color: #f8f9fa; padding: 20px; border-radius: 10px;">
+    <h2 style="color: #343a40;">Números Aleatorios</h2>
+
+    <div class="row">
+        <div class="col">
+            <ul class="list-inline" style="margin-left: 0; padding-left: 0;">
+                @foreach (var num in numero)
+                {
+                    <li class="list-inline-item" style="color: #007bff; margin-right: 10px;">@num</li>
+                }
+            </ul>
+        </div>
+    </div>
+    <section style="margin-top: 20px;">
+        <table class="table">
+            <thead style="background-color: #007bff; color: #fff;">
+                <tr>
+                    <th>Suma de los Números</th>
+                    <th>Media de los Números</th>
+                    <th>Moda de los Números</th>
+                    <th>Mediana de los Números</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Suma</td>
+                    <td>@Model.Promedio</td>
+                    <td>@Model.Moda</td>
+                    <td>@Model.Mediana</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <div style="margin-top: 20px;">
+        <button id="regenerate" class="btn btn-primary">
+            Generar Nuevos Números
+        </button>
+
+        <script>
+            document.getElementById("regenerate").addEventListener("click", function () {
+                location.reload();
+            });
+        </script>
+    </div>
+</div>
+
